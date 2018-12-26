@@ -5,15 +5,18 @@ const { VueLoaderPlugin } = require('vue-loader');
 module.exports = {
   mode: 'development',
   target: 'electron-renderer',
-  entry: './webpack-main.js',
+  entry: [
+    './webpack-main.js'
+  ],
   output: {
     filename: 'bundle.js',
     chunkFilename: '[name].bundle.js',
-    path: path.join(__dirname, '/dist'),
+    path: path.resolve(__dirname, './public/dist'),
     publicPath: '/dist/'
   },
   devServer: {
-    contentBase: path.join(__dirname, 'public')
+    contentBase: path.join(__dirname, 'public'),
+    publicPath: '/dist/'
   },
   module: {
     rules: [

@@ -7,15 +7,14 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 module.exports = {
   mode: 'production',
   target: 'electron-renderer',
-  entry: './webpack-main.js',
+  entry: [
+    './webpack-main.js'
+  ],
   output: {
     filename: 'bundle.js',
     chunkFilename: '[name].bundle.js',
     path: path.resolve(__dirname, './public/dist'),
     publicPath: '/dist/'
-  },
-  devServer: {
-    contentBase: path.join(__dirname, 'public')
   },
   module: {
     rules: [
