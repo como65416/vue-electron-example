@@ -29,9 +29,8 @@
     "electron-packager": "^3.0.0"
   },
   "scripts": {
-    "web": "webpack-dev-server --mode=development --port=8089 --watch --hot",
     "build": "webpack --config webpack.prod.js",
     "start": "electron .",
-    "start-dev": "electron --dev ."
+    "start-dev": "node start-dev.js"
   }
 }
