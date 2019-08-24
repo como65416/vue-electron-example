@@ -57,7 +57,8 @@ function createWindow() {
   })
 }
 
-app.on('ready', createWindow)
+app.on('ready', createWindow);
+app.disableHardwareAcceleration();
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
