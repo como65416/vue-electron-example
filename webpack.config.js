@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { VueLoaderPlugin } = require('vue-loader');
+const webpack = require('webpack');
 
 module.exports = {
   mode: 'development',
@@ -43,10 +44,15 @@ module.exports = {
       }
     ]
   },
+  devtool: false,
   plugins: [
     new MiniCssExtractPlugin({
       filename: `bundle.css`,
     }),
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new webpack.SourceMapDevToolPlugin({
+      filename: '[name].js.map',
+      exclude: ['vendor.js']
+    })
   ]
 };
